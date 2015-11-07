@@ -1,64 +1,11 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Vocab-recommender by istavrak</title>
+---
+layout: default
+---
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Vocab-recommender</h1>
-        <p></p>
-
-        <p class="view"><a href="https://github.com/istavrak/vocab-recommender">View the Project on GitHub <small>istavrak/vocab-recommender</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/istavrak/vocab-recommender/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/istavrak/vocab-recommender/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/istavrak/vocab-recommender">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Approach to leverage Websites to APIs through Semantics.</h3>
-
-<p>The transformation of Websites to APIs refers to the steps needed to leverage the Web content to self-defined data structures that can be consumed by machines and Web agents, called semantic annotations. Cornerstone requirement for this to happen is the incorporation of the correct vocabulary terms in a website. The presented approach addresses this challenge by helping to identify the most appropriate set of Linked Open Vocabulary terms for a given Web content context by leveraging the existing dynamics within the LOV graph and the LOD cloud.</p>
-
-      </section>
-      <section>
-      {% for post in site.posts %}
-        <article>
-          <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-          <p>{{ post.excerpt }}</p>
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-        </article>
-      {% endfor %}
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/istavrak">istavrak</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-6312488-14");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
-</html>
+{% for post in site.posts %}
+  <article>
+    <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+    <p>{{ post.excerpt }}</p>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+  </article>
+{% endfor %}
