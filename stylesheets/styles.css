@@ -247,6 +247,14 @@ footer {
   bottom:50px;
   -webkit-font-smoothing:subpixel-antialiased;
 }
+article {
+  margin-bottom:20px;
+}
+
+.read-more {
+    text-transform: uppercase;
+    font-size:15px;
+}
 
 @media print, screen and (max-width: 960px) {
 
