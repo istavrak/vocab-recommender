@@ -6,6 +6,6 @@ layout: default
   <article>
     <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
     <p>{{ post.excerpt }}</p>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a> - {{ post.date | date: "%B %e, %Y" }}
   </article>
 {% endfor %}
