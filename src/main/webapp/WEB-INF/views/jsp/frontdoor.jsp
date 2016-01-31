@@ -40,7 +40,7 @@
 		<h2>API Endpoints</h2>
 		<p>
 		<ul>
-		    <li>GET /recommendation?url=&lt;URL&gt;</li>
+		    <li><code>GET /recommendation?url=&lt;URL&gt;</code></li>
 		</ul>
 		</p>
 	</div>
