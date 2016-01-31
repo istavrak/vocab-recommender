@@ -52,13 +52,13 @@
 		</p>
 	</div>
   </div>
+</div>
 
-
-  <hr>
-  <footer>
-	<pCopyright (c) 2016 <a href="http:/istavrak.com">Ioannis Stavrakantonakis<a/> -
-	<a href="https://github.com/istavrak/vocab-recommender/blob/master/LICENSE.md">MIT License</a>.</p>
-  </footer>
+<div class="panel-footer">
+    <div class="container">
+        <p>Copyright (c) 2016 <a href="http://www.istavrak.com">Ioannis Stavrakantonakis<a/> -
+        <a href="https://github.com/istavrak/vocab-recommender/blob/master/LICENSE.md">MIT License</a>.</p>
+    </div>
 </div>
 
 <spring:url value="/resources/css/hello.js" var="coreJs" />
