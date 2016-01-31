@@ -9,6 +9,7 @@
 <spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -48,15 +49,16 @@
 		<h2>Source code</h2>
 		<p>Fork the project on github.</p>
 		<p>
-			<a class="btn btn-default" href="https://github.com/istavrak/vocab-recommender" role="button">Download</a>
+			<a class="btn btn-default" href="https://github.com/istavrak/vocab-recommender" role="button">
+			<span class="fa fa-github">&nbsp;</span>Download</a>
 		</p>
 	</div>
   </div>
 </div>
 
-<div class="panel-footer">
+<div class="panel-footer" style="margin-top:20px;">
     <div class="container">
-        <p>Copyright (c) 2016 <a href="http://www.istavrak.com">Ioannis Stavrakantonakis<a/> -
+        <p>Copyright &copy; 2016 <a href="http://www.istavrak.com">Ioannis Stavrakantonakis<a/> -
         <a href="https://github.com/istavrak/vocab-recommender/blob/master/LICENSE.md">MIT License</a>.</p>
     </div>
 </div>
