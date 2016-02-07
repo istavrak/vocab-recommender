@@ -10,6 +10,13 @@ public class RecommendationResultVocabulary implements RecommendationResponse, S
 
     public List<Query> doQuery;
 
+    public RecommendationResultVocabulary() {
+    }
+
+    public RecommendationResultVocabulary(List<Query> doQuery) {
+        this.doQuery = doQuery;
+    }
+
     @Override
     public boolean getSuccess() {
         return true;

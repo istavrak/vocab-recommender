@@ -1,19 +1,19 @@
-package com.istavrak.vocabrecommender.core.parsing;
+package com.istavrak.vocabrecommender.core.extractors;
 
-import org.jsoup.Jsoup;
+import com.istavrak.vocabrecommender.model.TargetPage;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaticPartsExtractor {
+public class StaticPartsExtractor implements TokensExtractor {
 
-    public List<String> getCommonParts(String url) throws IOException {
+    public List<String> getTokens(TargetPage page) {
         List<String> tokens = new ArrayList<String>();
-        Document doc = Jsoup.connect(url).get();
+        Document doc = page.getPageDocument();
         Elements media = doc.select("[src]");
 
         for (Element src : media) {
