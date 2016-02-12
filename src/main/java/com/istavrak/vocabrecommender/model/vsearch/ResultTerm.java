@@ -9,4 +9,9 @@ public class ResultTerm implements Serializable {
 
     public String termURI;
     public Rank hasRank;
+
+    @Override
+    public String toString() {
+        return termURI + ':' + hasRank ;
+    }
 }

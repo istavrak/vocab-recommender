@@ -37,8 +37,7 @@ public class RecommendationHandler {
         List<Query> results = resultsForKeywords(keywords);
 
         // Return the results.
-        RecommendationResultVocabulary vocab = new RecommendationResultVocabulary();
-        vocab.doQuery.addAll(results);
+        RecommendationResultVocabulary vocab = new RecommendationResultVocabulary(results);
         return vocab;
     }
 

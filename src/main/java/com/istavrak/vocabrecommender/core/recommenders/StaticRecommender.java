@@ -1,6 +1,7 @@
 package com.istavrak.vocabrecommender.core.recommenders;
 
 import com.istavrak.vocabrecommender.model.vsearch.Query;
+import com.istavrak.vocabrecommender.model.vsearch.Rank;
 import com.istavrak.vocabrecommender.model.vsearch.ResultTerm;
 
 /**
@@ -18,6 +19,7 @@ public class StaticRecommender extends VocabularyRecommender {
         switch (keyword) {
             case "image":
                 query.hasResultTerm.termURI = "http://schema.org/image";
+                query.hasResultTerm.hasRank = new Rank(1.0);
                 break;
         }
         return query;

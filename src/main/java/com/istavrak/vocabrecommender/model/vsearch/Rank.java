@@ -7,5 +7,14 @@ import java.io.Serializable;
 public class Rank implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public double rankValue;
+    public Double rankValue;
+
+    public Rank(Double rankValue) {
+        this.rankValue = rankValue;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(rankValue);
+    }
 }

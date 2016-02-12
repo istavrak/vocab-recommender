@@ -21,4 +21,17 @@ public class RecommendationResultVocabulary implements RecommendationResponse, S
     public boolean getSuccess() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Query query : doQuery) {
+            sb.append(query.keyword);
+            sb.append(":");
+            sb.append(query.hasResultTerm);
+            sb.append(",");
+        }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+    }
 }
