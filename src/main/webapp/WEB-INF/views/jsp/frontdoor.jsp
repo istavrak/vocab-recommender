@@ -43,6 +43,7 @@
 		<ul>
 		    <li><code>GET /recommendation?url=&lt;URL&gt;</code></li>
 		    <li><code>GET /recommendation?query=&lt;keyword1,keyword2&gt;</code></li>
+		    <li><code>GET /recommendation/static</code></li>
 		</ul>
 		</p>
 	</div>

@@ -1,7 +1,7 @@
-package com.istavrak.vocabrecommender.handlers;
+package com.istavrak.vocabrecommender.handler;
 
-import com.istavrak.vocabrecommender.core.extractors.StaticPartsExtractor;
-import com.istavrak.vocabrecommender.core.recommenders.StaticRecommender;
+import com.istavrak.vocabrecommender.core.extractor.StaticPartsExtractor;
+import com.istavrak.vocabrecommender.core.recommender.StaticRecommender;
 import com.istavrak.vocabrecommender.model.RecommendationFailure;
 import com.istavrak.vocabrecommender.model.RecommendationResponse;
 import com.istavrak.vocabrecommender.model.RecommendationResultVocabulary;

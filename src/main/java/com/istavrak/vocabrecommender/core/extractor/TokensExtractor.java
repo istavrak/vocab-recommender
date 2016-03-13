@@ -1,9 +1,9 @@
-package com.istavrak.vocabrecommender.core.extractors;
+package com.istavrak.vocabrecommender.core.extractor;
 
 import com.istavrak.vocabrecommender.model.TargetPage;
 
 import java.util.List;
 
 public interface TokensExtractor {
-    public List<String> getTokens(TargetPage page);
+    List<String> getTokens(TargetPage page);
 }

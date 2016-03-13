@@ -1,4 +1,4 @@
-package com.istavrak.vocabrecommender.core.rankers;
+package com.istavrak.vocabrecommender.core.ranker;
 
 import com.istavrak.vocabrecommender.model.vsearch.Rank;
 

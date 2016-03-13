@@ -1,6 +1,6 @@
 package com.istavrak.vocabrecommender;
 
-import com.istavrak.vocabrecommender.handlers.RecommendationHandler;
+import com.istavrak.vocabrecommender.handler.RecommendationHandler;
 import com.istavrak.vocabrecommender.model.RecommendationFailure;
 import com.istavrak.vocabrecommender.model.RecommendationResponse;
 import com.istavrak.vocabrecommender.model.RecommendationResultVocabulary;
@@ -19,10 +19,10 @@ public class RecommendationController {
 
     private static final Logger logger = Logger.getLogger(RecommendationController.class.getName());
 
-    @RequestMapping(value="/recommendation", method= RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/recommendation", method = RequestMethod.GET, produces = "application/json")
     public RecommendationResponse handleRecommendationRequest(
-            @RequestParam(value="url", required = false) String targetUrl,
-            @RequestParam(value="query", required = false) String queryKeywords) {
+            @RequestParam(value = "url", required = false) String targetUrl,
+            @RequestParam(value = "query", required = false) String queryKeywords) {
 
         // TODO validate the url
 
@@ -52,6 +52,14 @@ public class RecommendationController {
             response = new RecommendationFailure("Please specify either a URL with the " +
                     "?url= parameter or a comma separated list of keywords with the ?query= parameter.");
         }
+        return response;
+    }
+
+    @RequestMapping(value = "/recommendation/static", method = RequestMethod.GET, produces = "application/json")
+    public RecommendationResponse handleStaticRequest() {
+        RecommendationResponse response;
+
+        response = new RecommendationFailure("Under construction");
         return response;
     }
 }

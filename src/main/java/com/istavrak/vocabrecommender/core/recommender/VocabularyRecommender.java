@@ -1,4 +1,4 @@
-package com.istavrak.vocabrecommender.core.recommenders;
+package com.istavrak.vocabrecommender.core.recommender;
 
 import com.istavrak.vocabrecommender.model.vsearch.Query;
 
