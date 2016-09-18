@@ -4,9 +4,11 @@ author: istavrak
 layout: post
 ---
 
-The research paper was presented at SEMANTICS2016 at the [Data Science](http://2016.semantics.cc/main-conference) track. The slides have already been shared online via [slideshare](http://www.slideshare.net/istavrak/linked-open-vocabulary-ranking-and-terms-discovery). The  conference included many very interesting talks in various topics related to the Semantic Web.
+The research paper was presented at SEMANTICS2016 at the [Data Science](http://2016.semantics.cc/main-conference) track. The slides have already been shared online via [slideshare](http://www.slideshare.net/istavrak/linked-open-vocabulary-ranking-and-terms-discovery).
 
-The keynote presentations were mostly project-oriented, reflecting the main aim of the SEMANTiCS conference, the application of research on the various industrial sectors.
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/6873GCEyzC619k" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/istavrak/linked-open-vocabulary-ranking-and-terms-discovery" title="Linked Open Vocabulary Ranking and Terms Discovery" target="_blank">Linked Open Vocabulary Ranking and Terms Discovery</a> </strong> from <strong><a href="//www.slideshare.net/istavrak" target="_blank">Ioannis Stavrakantonakis</a></strong> </div>
+
+The  conference included many very interesting talks in various topics related to the Semantic Web. The keynote presentations were mostly project-oriented, reflecting the main aim of the SEMANTiCS conference, the application of research on the various industrial sectors.
 
 ![alt text]({{site.baseurl}}/images/SEMANTICS2016_keynote.JPG "SEMANTiCS 2016 - The LEDS project")
 
