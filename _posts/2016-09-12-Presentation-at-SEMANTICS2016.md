@@ -12,7 +12,7 @@ The  conference included many very interesting talks in various topics related t
 
 ![alt text]({{site.baseurl}}/images/SEMANTICS2016_keynote.JPG "SEMANTiCS 2016 - The LEDS project")
 
-The poster-demo submission was nominated as one of the top 5 of the conference, which made it eligible for inclusion in the main proceedints published by ACM.
+The poster-demo submission was nominated as one of the *top 5 of the conference*, which made it eligible for inclusion in the main proceedings published by ACM.
 
 I'm glad that the presentation of the research paper took place in a room full of participants in front of a great audience.
 <a data-flickr-embed="true" data-header="true" data-footer="true"  href="https://www.flickr.com/photos/25094278@N02/29615074451/" title="SEMANTiCS 2016"><img src="https://c4.staticflickr.com/9/8085/29615074451_83eac2c338_c.jpg" width="800" height="534" alt="SEMANTiCS 2016"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
