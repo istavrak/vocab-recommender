@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Vocab-recommender - <c:if test="${not empty version}">${version}</c:if></title>
+<title>Vocab-recommender<c:if test="${not empty version}"> - v${version}</c:if></title>
 
-<spring:url value="/resources/css/hello.css" var="coreCss" />
-<spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
-<link href="${bootstrapCss}" rel="stylesheet" />
-<link href="${coreCss}" rel="stylesheet" />
+<spring:url value="/resources/css/core.css" var="coreCss" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="${coreCss}" rel="stylesheet" />
 </head>
 
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
@@ -37,7 +37,7 @@
 <div class="container">
 
   <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-4">
 		<h2>API Endpoints</h2>
 		<p>
 		<ul>
@@ -47,6 +47,14 @@
 		</ul>
 		</p>
 	</div>
+	<div class="col-md-4">
+    		<h2>Assistant UI</h2>
+    		<p>Use the API via a user friendly User Interface.</p>
+    		<p>
+    			<a class="btn btn-default" href="/assistant" role="button">
+    			<span class="fa fa-search">&nbsp;</span>Search</a>
+    		</p>
+    </div>
 	<div class="col-md-4">
 		<h2>Source code</h2>
 		<p>Fork the project on github.</p>
@@ -65,11 +73,6 @@
     </div>
 </div>
 
-<spring:url value="/resources/css/hello.js" var="coreJs" />
-<spring:url value="/resources/css/bootstrap.min.js" var="bootstrapJs" />
-
-<script src="${coreJs}"></script>
-<script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 </body>

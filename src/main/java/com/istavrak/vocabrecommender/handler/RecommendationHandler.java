@@ -16,7 +16,13 @@ import java.util.List;
 
 public class RecommendationHandler {
 
-    public RecommendationResponse generateRecommendationsFor(String url) {
+    /**
+     * Handles the generation of recommendations for a target URL.
+     * @param url The URL of the target webpage.
+     * @param includeStatic Flag to disable the inclusion of terms for static elements.
+     * @return A successful response.
+     */
+    public RecommendationResponse generateRecommendationsFor(String url, Boolean includeStatic) {
         // Extract the content of the URL for further analysis.
         TargetPage page;
         try {
@@ -41,6 +47,11 @@ public class RecommendationHandler {
         return vocab;
     }
 
+    /**
+     * Handles the generation of recommendations for a list of keywords.
+     * @param keywords List of keywords.
+     * @return A successful response.
+     */
     public RecommendationResponse generateRecommendationsFor(List<String> keywords) {
         // Generate the recommendation results
         List<Query> results = resultsForKeywords(keywords);

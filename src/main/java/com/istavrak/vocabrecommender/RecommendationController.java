@@ -22,14 +22,15 @@ public class RecommendationController {
     @RequestMapping(value = "/recommendation", method = RequestMethod.GET, produces = "application/json")
     public RecommendationResponse handleRecommendationRequest(
             @RequestParam(value = "url", required = false) String targetUrl,
-            @RequestParam(value = "query", required = false) String queryKeywords) {
+            @RequestParam(value = "query", required = false) String queryKeywords,
+            @RequestParam(value = "static", required = false) Boolean includeStatic) {
 
         // TODO validate the url
 
         RecommendationResponse response;
         RecommendationHandler handler = new RecommendationHandler();
         if (targetUrl != null && queryKeywords == null) {
-            response = handler.generateRecommendationsFor(targetUrl);
+            response = handler.generateRecommendationsFor(targetUrl, includeStatic);
             logger.log(Level.INFO, "Starting recommendation for url: " + targetUrl);
             if (response instanceof RecommendationResultVocabulary) {
                 RecommendationResultVocabulary vocabResult = (RecommendationResultVocabulary) response;
