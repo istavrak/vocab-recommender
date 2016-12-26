@@ -34,10 +34,13 @@ public class RecommendationHandler {
         if (page == null) {
             return new RecommendationFailure("Failed to extract the content of the URL.");
         }
+        List<String> keywords = new ArrayList<>();
 
         // Extract static parts (images)
-        StaticPartsExtractor staticExtractor = new StaticPartsExtractor();
-        List<String> keywords = staticExtractor.getTokens(page);
+        if (includeStatic) {
+            StaticPartsExtractor staticExtractor = new StaticPartsExtractor();
+            keywords.addAll(staticExtractor.getTokens(page));
+        }
 
         // Generate the recommendation results
         List<Query> results = resultsForKeywords(keywords);
@@ -62,7 +65,7 @@ public class RecommendationHandler {
     }
 
     private List<Query> resultsForKeywords(List<String> keywords) {
-        List<Query> finalResults = new ArrayList<Query>();
+        List<Query> finalResults = new ArrayList<>();
 
         // Generate the static recommendations
         StaticRecommender staticRecommender = new StaticRecommender();

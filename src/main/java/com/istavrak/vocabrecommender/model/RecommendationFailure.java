@@ -12,4 +12,8 @@ public class RecommendationFailure implements RecommendationResponse{
     public boolean getSuccess() {
         return false;
     }
+
+    public String getMessage() {
+        return message;
+    }
 }

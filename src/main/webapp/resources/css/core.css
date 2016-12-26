@@ -5,3 +5,16 @@
 .green {
     color: green;
 }
+
+.static {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.static-box {
+    float: left;
+    width: auto;
+    margin-top: 0px;
+}

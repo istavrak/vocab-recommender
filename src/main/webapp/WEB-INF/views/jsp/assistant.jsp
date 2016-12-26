@@ -16,7 +16,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Vocab-recommender - <c:if test="${not empty version}">${version}</c:if></a>
+		<a class="navbar-brand" href="#">Vocab-recommender<c:if test="${not empty version}"> - v${version}</c:if></a>
 	</div>
   </div>
 </nav>
@@ -39,7 +39,6 @@ function searchFormSelect() {
               <select id="searchType" name="searchType" class="form-control form-custom" onchange="searchFormSelect();">
                   <option value="0" title="Webpage keywords (comma separated)" selected>Webpage keywords</option>
                   <option value="1" title="Webpage URL">Webpage URL</option>
-                  <option value="2" title="Multimedia keywords (comma separated)">Multimedia keywords</option>
               </select>
             </div>
             <div class="form-group col-md-12">
@@ -52,7 +51,11 @@ function searchFormSelect() {
                   <option value="0" selected>English - en</option>
               </select>
             </div>
-            <input type="submit" class="btn btn-primary btn-lg"/>
+            <div class="form-group col-md-12">
+              <label for="static" class="static">Include multimedia terms</label>
+                <input class="form-control form-custom static-box" name="static" id="static" type="checkbox" value="true" checked/>
+            </div>
+            <input type="submit" value="Search" class="btn btn-primary btn-lg"/>
           </form>
         </div>
 	</div>
@@ -70,7 +73,10 @@ function searchFormSelect() {
     </code>
     </c:if>
     <div id="responseBox">
-    <c:if test="${not empty response}">${response.toString()}</c:if>
+    <c:if test="${not response.getSuccess()}">
+    ${response.getMessage()}
+    </c:if>
+    <c:if test="${not empty response && response.getSuccess()}">${response.toString()}</c:if>
     </div>
 </div>
 </div>

@@ -15,7 +15,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Vocab-recommender - <c:if test="${not empty version}">${version}</c:if></a>
+		<a class="navbar-brand" href="#">Vocab-recommender<c:if test="${not empty version}"> - v${version}</c:if></a>
 	</div>
   </div>
 </nav>
