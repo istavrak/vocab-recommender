@@ -3,7 +3,7 @@ package com.istavrak.vocabrecommender.model.lov;
 
 import java.util.List;
 
-public class LOVResults {
+public class Results {
     private List<Term> results;
     private String queryString;
     private String total_results;
@@ -41,7 +41,6 @@ public class LOVResults {
             sb.append(t.toString());
             sb.append(']');
             sb.append(", ");
-
         }
         sb.append("queryString: ");
         sb.append(queryString);

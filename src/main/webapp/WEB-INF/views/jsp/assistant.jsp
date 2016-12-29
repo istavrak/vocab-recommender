@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="${coreCss}" rel="stylesheet" />
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </head>
 
 <body>
@@ -72,11 +73,15 @@ function searchFormSelect() {
     <c:if test="${not response.getSuccess()}">Fail</c:if>
     </code>
     </c:if>
-    <div id="responseBox">
+    <div id="responseBox" class="responseBox">
     <c:if test="${not response.getSuccess()}">
     ${response.getMessage()}
     </c:if>
-    <c:if test="${not empty response && response.getSuccess()}">${response.toString()}</c:if>
+    <c:if test="${not empty response && response.getSuccess()}">
+        <pre class="prettyprint">
+        ${response.toJson()}
+        </pre>
+    </c:if>
     </div>
 </div>
 </div>

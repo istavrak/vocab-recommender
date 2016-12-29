@@ -16,4 +16,8 @@ public class RecommendationFailure implements RecommendationResponse{
     public String getMessage() {
         return message;
     }
+
+    public String toJson() {
+        return message;
+    }
 }

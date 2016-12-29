@@ -2,7 +2,7 @@ package com.istavrak.vocabrecommender.core.searcher;
 
 
 import com.google.gson.Gson;
-import com.istavrak.vocabrecommender.model.lov.LOVResults;
+import com.istavrak.vocabrecommender.model.lov.Results;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class LOVSearcher {
     private static final Logger logger = Logger.getLogger(LOVSearcher.class.getName());
 
-    public LOVResults invokeViaHttp(String url) {
+    public Results invokeViaHttp(String url) {
         String jsonResult = null;
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet(url);
@@ -29,7 +29,7 @@ public class LOVSearcher {
 
         if (jsonResult != null && !jsonResult.isEmpty()) {
             Gson gson = new Gson();
-            return gson.fromJson(jsonResult, LOVResults.class);
+            return gson.fromJson(jsonResult, Results.class);
         }
         return null;
     }
