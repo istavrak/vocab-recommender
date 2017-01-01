@@ -18,17 +18,19 @@ public class StaticRecommender extends VocabularyRecommender {
 
         switch (keyword) {
             case "image":
-                query.hasResultTerm.termURI = "http://schema.org/image";
+                query.hasResultTerm.termURI = "https://schema.org/ImageObject";
                 query.hasResultTerm.hasRank = new Rank(1.0);
                 break;
             case "video":
-                query.hasResultTerm.termURI = "https://schema.org/video";
+                query.hasResultTerm.termURI = "https://schema.org/VideoObject";
                 query.hasResultTerm.hasRank = new Rank(1.0);
                 break;
             case "audio":
-                query.hasResultTerm.termURI = "https://schema.org/audio";
+                query.hasResultTerm.termURI = "https://schema.org/AudioObject";
                 query.hasResultTerm.hasRank = new Rank(1.0);
                 break;
+            default:
+                return null;
         }
         return query;
     }

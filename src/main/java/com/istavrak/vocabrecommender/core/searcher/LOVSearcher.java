@@ -15,6 +15,11 @@ import java.util.logging.Logger;
 
 public class LOVSearcher {
     private static final Logger logger = Logger.getLogger(LOVSearcher.class.getName());
+    private static final String LOV_URL = "http://lov.okfn.org/dataset/lov/api/v2/term/search?q=";
+
+    public Results searchLOVFor(String keyword) {
+        return invokeViaHttp(generateLOVApiUrl(keyword));
+    }
 
     public Results invokeViaHttp(String url) {
         String jsonResult = null;
@@ -32,5 +37,9 @@ public class LOVSearcher {
             return gson.fromJson(jsonResult, Results.class);
         }
         return null;
+    }
+
+    private String generateLOVApiUrl(String keyword) {
+        return LOV_URL + keyword;
     }
 }

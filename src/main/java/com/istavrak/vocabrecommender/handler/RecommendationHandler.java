@@ -1,6 +1,7 @@
 package com.istavrak.vocabrecommender.handler;
 
 import com.istavrak.vocabrecommender.core.extractor.StaticPartsExtractor;
+import com.istavrak.vocabrecommender.core.recommender.LOVRecommender;
 import com.istavrak.vocabrecommender.core.recommender.StaticRecommender;
 import com.istavrak.vocabrecommender.model.RecommendationFailure;
 import com.istavrak.vocabrecommender.model.RecommendationResponse;
@@ -70,8 +71,15 @@ public class RecommendationHandler {
         // Generate the static recommendations
         StaticRecommender staticRecommender = new StaticRecommender();
         List<Query> staticResults = staticRecommender.recommendVocabularyFor(keywords);
+        if (!staticResults.isEmpty()) {
+            finalResults.addAll(staticResults);
+        }
 
-        finalResults.addAll(staticResults);
+        // Generate the LOV recommendations
+        LOVRecommender lovRecommender = new LOVRecommender();
+        List<Query> lovResults = lovRecommender.recommendVocabularyFor(keywords);
+        finalResults.addAll(lovResults);
+
         return finalResults;
     }
 
