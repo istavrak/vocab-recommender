@@ -73,10 +73,10 @@
                 <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
   		    <li><b>Towards a Vocabulary Terms Discovery Assistant</b><br />
                 <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
+            <li><b>Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data</b><br />
+                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the Joint International Semantic Technology Conference, JIST 2015</i></li>
   		    <li><b>Matching web entities with potential actions</b><br />
                 <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Poster Paper track of the 10th International Conference on Semantic Systems, SEMANTiCS 2014</i></li>
-  		    <li><b>Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data</b><br />
-                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the Joint International Semantic Technology Conference, JIST 2015</i></li>
   		</ul>
   		</p>
   	</div>
