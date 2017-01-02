@@ -1,0 +1,35 @@
+<rdf:RDF
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:voc="http://vocab.cc/v/schema/"
+        xmlns:so="http://purl.org/linkedservices/ontology/SearchOntology#">
+    <rdf:Description rdf:about="http://dbtropes.org/resource/Main/HellHotel">
+        <voc:usedAsClass rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">531</voc:usedAsClass>
+        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://dbtropes.org/resource/Main/HotelHellion">
+        <voc:usedAsClass rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</voc:usedAsClass>
+        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://dbpedia.org/property/hotel">
+        <voc:usedAsProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</voc:usedAsProperty>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://schema.org/Hotel">
+        <voc:usedAsClass rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">696</voc:usedAsClass>
+        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://vocab.cc/v/search?query=hotel#query">
+        <so:result rdf:resource="http://dbtropes.org/resource/Main/HotelHellion"/>
+        <so:result rdf:resource="http://schema.org/Hotel"/>
+        <so:result rdf:resource="http://dbtropes.org/resource/Main/HellHotel"/>
+        <so:result rdf:resource="http://dbpedia.org/class/yago/Hotel"/>
+        <so:result rdf:resource="http://dbpedia.org/property/hotel"/>
+        <so:queryString>hotel</so:queryString>
+        <rdf:type rdf:resource="http://purl.org/linkedservices/ontology/SearchOntology#Query"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://dbpedia.org/class/yago/Hotel">
+        <voc:usedAsClass rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</voc:usedAsClass>
+        <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    </rdf:Description>
+</rdf:RDF>
+

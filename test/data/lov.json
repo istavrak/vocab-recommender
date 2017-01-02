@@ -1,0 +1,396 @@
+{
+        "total_results": 1904,
+        "page": 1,
+        "page_size": 10,
+        "queryString": "Person",
+        "filters": {},
+        "aggregations": {
+                "tags": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 248,
+                        "buckets": [
+                                {
+                                        "key": "FRBR",
+                                        "doc_count": 577
+                                },
+                                {
+                                        "key": "People",
+                                        "doc_count": 250
+                                },
+                                {
+                                        "key": "General & Upper",
+                                        "doc_count": 225
+                                },
+                                {
+                                        "key": "Vocabularies",
+                                        "doc_count": 168
+                                },
+                                {
+                                        "key": "Society",
+                                        "doc_count": 102
+                                },
+                                {
+                                        "key": "Catalogs",
+                                        "doc_count": 91
+                                },
+                                {
+                                        "key": "Metadata",
+                                        "doc_count": 68
+                                },
+                                {
+                                        "key": "Academy",
+                                        "doc_count": 64
+                                },
+                                {
+                                        "key": "PROTON",
+                                        "doc_count": 56
+                                },
+                                {
+                                        "key": "Multimedia",
+                                        "doc_count": 55
+                                }
+                        ]
+                },
+                "types": {
+                        "doc_count_error_upper_bound": 0,
+                        "sum_other_doc_count": 0,
+                        "buckets": [
+                                {
+                                        "key": "property",
+                                        "doc_count": 1514
+                                },
+                                {
+                                        "key": "class",
+                                        "doc_count": 390
+                                }
+                        ]
+                },
+                "vocabs": {
+                        "doc_count_error_upper_bound": 9,
+                        "sum_other_doc_count": 1048,
+                        "buckets": [
+                                {
+                                        "key": "rdaa",
+                                        "doc_count": 270
+                                },
+                                {
+                                        "key": "rdarole",
+                                        "doc_count": 120
+                                },
+                                {
+                                        "key": "gvp",
+                                        "doc_count": 116
+                                },
+                                {
+                                        "key": "schema",
+                                        "doc_count": 82
+                                },
+                                {
+                                        "key": "dbpedia",
+                                        "doc_count": 74
+                                },
+                                {
+                                        "key": "owl",
+                                        "doc_count": 74
+                                },
+                                {
+                                        "key": "oslo",
+                                        "doc_count": 67
+                                },
+                                {
+                                        "key": "sor",
+                                        "doc_count": 48
+                                },
+                                {
+                                        "key": "agrelon",
+                                        "doc_count": 45
+                                },
+                                {
+                                        "key": "rdaw",
+                                        "doc_count": 45
+                                }
+                        ]
+                }
+        },
+        "results": [
+                {
+                        "prefixedName": [
+                                "foaf:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                72
+                        ],
+                        "vocabulary.prefix": [
+                                "foaf"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                2320027
+                        ],
+                        "uri": [
+                                "http://xmlns.com/foaf/0.1/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.6770214,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#comment": [
+                                        "A <b>person</b>."
+                                ],
+                                "http://www.w3.org/2000/01/rdf-schema#label": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "npg:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                0
+                        ],
+                        "vocabulary.prefix": [
+                                "npg"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                0
+                        ],
+                        "uri": [
+                                "http://ns.nature.com/terms/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.5555556,
+                        "highlight": {
+                                "http://www.w3.org/2004/02/skos/core#definition@en": [
+                                        "The :<b>Person</b> class represents a single <b>person</b> entity."
+                                ],
+                                "http://www.w3.org/2004/02/skos/core#prefLabel@en": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "bbccore:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                0
+                        ],
+                        "vocabulary.prefix": [
+                                "bbccore"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                0
+                        ],
+                        "uri": [
+                                "http://www.bbc.co.uk/ontologies/coreconcepts/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.5555556,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#label@en-gb": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "sport:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                0
+                        ],
+                        "vocabulary.prefix": [
+                                "sport"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                0
+                        ],
+                        "uri": [
+                                "http://www.bbc.co.uk/ontologies/sport/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.53570205,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#label@en-gb": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ],
+                                "http://www.w3.org/2000/01/rdf-schema#comment@en-gb": [
+                                        "An athlete or other <b>person</b> with typically a"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "schema:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                2
+                        ],
+                        "vocabulary.prefix": [
+                                "schema"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                980153
+                        ],
+                        "uri": [
+                                "http://schema.org/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.47775444,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#comment": [
+                                        "A <b>person</b> (alive, dead, undead, or fictional)."
+                                ],
+                                "http://www.w3.org/2000/01/rdf-schema#label": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "akt:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                23
+                        ],
+                        "vocabulary.prefix": [
+                                "akt"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                3183315
+                        ],
+                        "uri": [
+                                "http://www.aktors.org/ontology/portal#Person"
+                        ],
+                        "type": "class",
+                        "score": 0.45352495,
+                        "highlight": {
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "dcterms:creator"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                129
+                        ],
+                        "vocabulary.prefix": [
+                                "dcterms"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                4781374
+                        ],
+                        "uri": [
+                                "http://purl.org/dc/terms/creator"
+                        ],
+                        "type": "property",
+                        "score": 0.43330118,
+                        "highlight": {
+                                "http://purl.org/dc/terms/description@en": [
+                                        "Examples of a Creator include a <b>person</b>, an organization, or a service."
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "dcterms:publisher"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                74
+                        ],
+                        "vocabulary.prefix": [
+                                "dcterms"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                11388661
+                        ],
+                        "uri": [
+                                "http://purl.org/dc/terms/publisher"
+                        ],
+                        "type": "property",
+                        "score": 0.42458558,
+                        "highlight": {
+                                "http://purl.org/dc/terms/description@en": [
+                                        "Examples of a Publisher include a <b>person</b>, an organization, or a service."
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "dbpedia-owl:Person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                3
+                        ],
+                        "vocabulary.prefix": [
+                                "dbpedia-owl"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                225926
+                        ],
+                        "uri": [
+                                "http://dbpedia.org/ontology/Person"
+                        ],
+                        "type": "class",
+                        "score": 0.4148785,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#label@en": [
+                                        "<b>person</b>"
+                                ],
+                                "http://www.w3.org/2000/01/rdf-schema#label@de": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>Person</b>"
+                                ]
+                        }
+                },
+                {
+                        "prefixedName": [
+                                "dbpedia-owl:person"
+                        ],
+                        "metrics.reusedByDatasets": [
+                                0
+                        ],
+                        "vocabulary.prefix": [
+                                "dbpedia-owl"
+                        ],
+                        "metrics.occurrencesInDatasets": [
+                                0
+                        ],
+                        "uri": [
+                                "http://dbpedia.org/ontology/person"
+                        ],
+                        "type": "property",
+                        "score": 0.41301325,
+                        "highlight": {
+                                "http://www.w3.org/2000/01/rdf-schema#label@en": [
+                                        "<b>person</b>"
+                                ],
+                                "http://www.w3.org/2000/01/rdf-schema#label@de": [
+                                        "<b>Person</b>"
+                                ],
+                                "localName.ngram": [
+                                        "<b>person</b>"
+                                ]
+                        }
+                }
+        ]
+}

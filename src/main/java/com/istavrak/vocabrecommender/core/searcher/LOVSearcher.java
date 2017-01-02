@@ -21,7 +21,7 @@ public class LOVSearcher {
         return invokeViaHttp(generateLOVApiUrl(keyword));
     }
 
-    public Results invokeViaHttp(String url) {
+    private Results invokeViaHttp(String url) {
         String jsonResult = null;
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet(url);
