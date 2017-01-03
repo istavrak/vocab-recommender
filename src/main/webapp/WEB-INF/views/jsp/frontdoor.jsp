@@ -64,36 +64,38 @@
 		</p>
 	</div>
   </div>
-  <div class="row">
-  	<div class="col-md-8">
-  		<h2>Publications</h2>
-  		<p>
-  		<ul>
-  		    <li><b>Linked Open Vocabulary ranking and terms discovery</b><br />
-                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
-  		    <li><b>Towards a Vocabulary Terms Discovery Assistant</b><br />
-                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
-            <li><b>Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data</b><br />
-                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the Joint International Semantic Technology Conference, JIST 2015</i></li>
-  		    <li><b>Matching web entities with potential actions</b><br />
-                <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Poster Paper track of the 10th International Conference on Semantic Systems, SEMANTiCS 2014</i></li>
-  		</ul>
-  		</p>
-  	</div>
-  	<div class="col-md-4">
-        <h2>Honors</h2>
-        <p>
-        The PhD research behind vocab-recommender has been awarded with a scholarship by Netidee
-        (<a href="http://istavrak.com/vocab-recommender/netidee2015-scholarship/">post</a>) in 2015.
-        </p>
-        <a href="https://www.netidee.at/" target="_blank"><img width="70%" src="/resources/images/netidee-Logo-HiRes300dpi-4c-Standard_3000.png"></a>
-    </div>
-  </div>
 </div>
 
 <div class="panel-footer" style="margin-top:20px;">
     <div class="container">
-        <p>Copyright &copy; 2016 <a href="http://www.istavrak.com">Ioannis Stavrakantonakis<a/> -
+    <div class="row">
+      	<div class="col-md-8">
+      		<h2>Publications</h2>
+      		<p>
+      		<ul>
+      		    <li><b>Linked Open Vocabulary ranking and terms discovery</b><br />
+                    <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
+      		    <li><b>Towards a Vocabulary Terms Discovery Assistant</b><br />
+                    <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016</i></li>
+                <li><b>Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data</b><br />
+                    <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Proceedings of the Joint International Semantic Technology Conference, JIST 2015</i></li>
+      		    <li><b>Matching web entities with potential actions</b><br />
+                    <i>I.Stavrakantonakis, A.Fensel, D.Fensel - Poster Paper track of the 10th International Conference on Semantic Systems, SEMANTiCS 2014</i></li>
+      		</ul>
+      		</p>
+      	</div>
+      	<div class="col-md-4">
+            <h2>Honors</h2>
+            <p>
+            The PhD research behind vocab-recommender has been awarded with a scholarship by Netidee
+            (<a href="http://istavrak.com/vocab-recommender/netidee2015-scholarship/">post</a>) in 2015.
+            </p>
+            <a href="https://www.netidee.at/" target="_blank"><img width="70%" src="/resources/images/netidee-Logo-HiRes300dpi-4c-Standard_3000.png"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container panel-footer">
+        <p>Developed by <a href="http://www.istavrak.com">Ioannis Stavrakantonakis</a> -
         <a href="https://github.com/istavrak/vocab-recommender/blob/master/LICENSE.md">MIT License</a>.</p>
     </div>
 </div>
