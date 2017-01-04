@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -37,7 +38,11 @@ public class RecommendationController {
                 logger.log(Level.INFO, "Result recommendation for " + targetUrl + ": " + vocabResult);
             }
         } else if (targetUrl == null && queryKeywords != null) {
-            List<String> keywords = Arrays.asList(queryKeywords.split(","));
+            List<String> keywordsSplitted = Arrays.asList(queryKeywords.split(","));
+            // Arrays.asList returns a fixed-size list. Cannot remove elements later from it.
+            // For this reason we add the keywords to a new ArrayList.
+            List<String> keywords = new ArrayList<>();
+            keywords.addAll(keywordsSplitted);
             if (keywords.size() == 0 || keywords.size() > 10) {
                 response = new RecommendationFailure("The number of keywords at the ?query= parameter is not valid." +
                         "The correct number falls in the range [1,10].");
