@@ -1,12 +1,14 @@
 package com.istavrak.vocabrecommender.model.lov;
 
-
+import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Results {
     private List<Term> results;
     private String queryString;
-    private String total_results;
+
+    @SerializedName("total_results")
+    private Integer totalResults;
 
     public List<Term> getResults() {
         return results;
@@ -24,12 +26,12 @@ public class Results {
         this.queryString = queryString;
     }
 
-    public String getTotal_results() {
-        return total_results;
+    public Integer getTotalResults() {
+        return totalResults;
     }
 
-    public void setTotal_results(String total_results) {
-        this.total_results = total_results;
+    public void setTotalResults(Integer totalResults) {
+        this.totalResults = totalResults;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class Results {
         sb.append(queryString);
         sb.append(", ");
         sb.append("totalResults: ");
-        sb.append(total_results);
+        sb.append(totalResults);
         return sb.toString();
     }
 }

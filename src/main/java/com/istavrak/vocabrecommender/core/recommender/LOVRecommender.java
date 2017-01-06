@@ -14,6 +14,8 @@ public class LOVRecommender extends VocabularyRecommender {
 
         LOVSearcher searcher = new LOVSearcher();
         Results lovResults = searcher.searchLOVFor(keyword);
+
+        // TODO implement the logic to use the rankers here
         if (!lovResults.getResults().isEmpty()) {
             query.hasResultTerm.termURI = lovResults.getResults().get(0).getUri().get(0);
         }
