@@ -1,0 +1,67 @@
+[
+  {
+    "datasets": 8,
+    "overall_sum": 60722,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_AUDIENCE_%28C%29_Lift_Not_Egress_Standard%2C_Room_Suitable_for_PEEP"
+  },
+  {
+    "datasets": 57,
+    "overall_sum": 60723,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_AUDIENCE_%28A%29_Ground_Floor_Room_Fully_Accessible"
+  },
+  {
+    "datasets": 10,
+    "overall_sum": 60720,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_INSTRUCTOR_%28C%29_Lift_Not_Egress_Standard_-_Room_Suitable_for_PEEP"
+  },
+  {
+    "datasets": 438,
+    "overall_sum": 17,
+    "uri": "http://vocab.deri.ie/rooms#Room"
+  },
+  {
+    "datasets": 1968,
+    "overall_sum": 162763,
+    "uri": "http://id.southampton.ac.uk/ns/RoomFeature"
+  },
+  {
+    "datasets": 1073,
+    "overall_sum": 7634,
+    "uri": "http://vocab.deri.ie/rooms#Building"
+  },
+  {
+    "datasets": 62,
+    "overall_sum": 60717,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_INSTRUCTOR_%28A%29_Ground_Floor_Room_Fully_Accessible"
+  },
+  {
+    "datasets": 32,
+    "overall_sum": 60724,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_INSTRUCTOR_%28B%29_Upper_Floor_Room_Egress_Standard_Lift_%26_Evac_Management_Plan"
+  },
+  {
+    "datasets": 44,
+    "overall_sum": 162766,
+    "uri": "http://id.southampton.ac.uk/ns/RoomFeatureClass"
+  },
+  {
+    "datasets": 24,
+    "overall_sum": 60726,
+    "uri": "http://id.southampton.ac.uk/syllabus/feature/RSC-_DISABLED_ACCESS_-_AUDIENCE_%28B%29_Upper_Floor_Room_Egress_Standard_Lift_%26_Evac_Management_Plan"
+  },
+  {
+    "datasets": 29,
+    "overall_sum": 59352,
+    "uri": "http://data.semanticweb.org/ns/swc/ontology#MeetingRoomPlace"
+  },
+  {
+    "datasets": 39,
+    "overall_sum": 60728,
+    "uri": "http://vocab.deri.ie/rooms#Site"
+  },
+  {
+    "datasets": 100,
+    "overall_sum": 11426,
+    "uri": "http://vocab.deri.ie/rooms#Floor"
+  }
+]
