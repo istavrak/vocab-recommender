@@ -13,7 +13,7 @@ public class LOVRecommender extends VocabularyRecommender {
         query.hasResultTerm = new ResultTerm();
 
         LOVSearcher searcher = new LOVSearcher();
-        Results lovResults = searcher.searchLOVFor(keyword);
+        Results lovResults = (Results) searcher.searchFor(keyword);
 
         // TODO implement the logic to use the rankers here
         if (!lovResults.getResults().isEmpty()) {
