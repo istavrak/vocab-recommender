@@ -17,15 +17,11 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class VocabCCSearcher {
+public class VocabCCSearcher extends Searcher {
     private static final Logger logger = Logger.getLogger(VocabCCSearcher.class.getName());
     private static final String VOCAB_URL = "http://vocab.cc/v/search?query=";
 
-    public Results searchVocabccFor(String keyword) {
-        return invokeViaHttp(generateVocabccApiUrl(keyword));
-    }
-
-    private Results invokeViaHttp(String url) {
+    Results invokeViaHttp(String url) {
         String rdfResult = null;
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet(url);
@@ -65,8 +61,8 @@ public class VocabCCSearcher {
         }
     }
 
-    private String generateVocabccApiUrl(String keyword) {
-        return VOCAB_URL + keyword;
+    @Override
+    String getApiSearchUrl() {
+        return VOCAB_URL;
     }
-
 }

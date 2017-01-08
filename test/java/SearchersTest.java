@@ -12,8 +12,7 @@ public class SearchersTest {
     @Test
     public void testLODStatsInvoking() {
         LODStatsSearcher searcher = new LODStatsSearcher();
-        Results results = searcher.searchFor("room");
-
+        Results results = (Results) searcher.searchFor("room");
         assertFalse(results == null);
         assertTrue(!results.getTerms().isEmpty());
     }
@@ -21,8 +20,8 @@ public class SearchersTest {
     @Test
     public void testLOVInvoking() {
         LOVSearcher searcher = new LOVSearcher();
-        com.istavrak.vocabrecommender.model.lov.Results results = searcher.searchLOVFor("Person");
-
+        com.istavrak.vocabrecommender.model.lov.Results results =
+                (com.istavrak.vocabrecommender.model.lov.Results) searcher.searchFor("Person");
         assertTrue(!results.getResults().isEmpty());
         assertTrue(!results.getQueryString().isEmpty());
     }
@@ -30,8 +29,8 @@ public class SearchersTest {
     @Test
     public void testVocabInvoking() {
         VocabCCSearcher searcher = new VocabCCSearcher();
-        com.istavrak.vocabrecommender.model.vocabcc.Results results = searcher.searchVocabccFor("hotel");
-
+        com.istavrak.vocabrecommender.model.vocabcc.Results results =
+                (com.istavrak.vocabrecommender.model.vocabcc.Results) searcher.searchFor("hotel");
         assertFalse(results == null);
         assertTrue(!results.getDescriptions().isEmpty());
     }

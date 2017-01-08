@@ -88,7 +88,7 @@ function searchFormSelect() {
 </div>
 <div class="panel-footer" style="margin-top:20px;">
     <div class="container">
-        <p>Copyright &copy; 2016 <a href="http://www.istavrak.com">Ioannis Stavrakantonakis<a/> -
+        <p>Developed by <a href="http://www.istavrak.com">Ioannis Stavrakantonakis</a> -
         <a href="https://github.com/istavrak/vocab-recommender/blob/master/LICENSE.md">MIT License</a>.</p>
     </div>
 </div>

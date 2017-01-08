@@ -1,9 +1,11 @@
 package com.istavrak.vocabrecommender.model.lov;
 
 import com.google.gson.annotations.SerializedName;
+import com.istavrak.vocabrecommender.model.SearchResults;
+
 import java.util.List;
 
-public class Results {
+public class Results extends SearchResults {
     private List<Term> results;
     private String queryString;
 

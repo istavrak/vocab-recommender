@@ -14,15 +14,11 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LODStatsSearcher {
+public class LODStatsSearcher extends Searcher {
     private static final Logger logger = Logger.getLogger(LODStatsSearcher.class.getName());
     private static final String LODSTATS_URL = "http://stats.lod2.eu/rdf_classes?search=";
 
-    public Results searchFor(String keyword) {
-        return invokeViaHttp(generateApiUrl(keyword));
-    }
-
-    private Results invokeViaHttp(String url) {
+    Results invokeViaHttp(String url) {
         String jsonResult = null;
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet(url);
@@ -41,7 +37,8 @@ public class LODStatsSearcher {
         return null;
     }
 
-    private String generateApiUrl(String keyword) {
-        return LODSTATS_URL + keyword;
+    @Override
+    String getApiSearchUrl() {
+        return LODSTATS_URL;
     }
 }

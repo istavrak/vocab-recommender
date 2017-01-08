@@ -13,15 +13,11 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LOVSearcher {
+public class LOVSearcher extends Searcher{
     private static final Logger logger = Logger.getLogger(LOVSearcher.class.getName());
     private static final String LOV_URL = "http://lov.okfn.org/dataset/lov/api/v2/term/search?q=";
 
-    public Results searchLOVFor(String keyword) {
-        return invokeViaHttp(generateLOVApiUrl(keyword));
-    }
-
-    private Results invokeViaHttp(String url) {
+    Results invokeViaHttp(String url) {
         String jsonResult = null;
         try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
             HttpGet request = new HttpGet(url);
@@ -39,7 +35,8 @@ public class LOVSearcher {
         return null;
     }
 
-    private String generateLOVApiUrl(String keyword) {
-        return LOV_URL + keyword;
+    @Override
+    String getApiSearchUrl() {
+        return LOV_URL;
     }
 }

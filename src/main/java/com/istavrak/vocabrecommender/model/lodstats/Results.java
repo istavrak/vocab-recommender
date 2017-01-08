@@ -1,8 +1,10 @@
 package com.istavrak.vocabrecommender.model.lodstats;
 
+import com.istavrak.vocabrecommender.model.SearchResults;
+
 import java.util.List;
 
-public class Results {
+public class Results extends SearchResults {
     private List<Term> terms;
 
     public List<Term> getTerms() {
