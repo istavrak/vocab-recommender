@@ -84,8 +84,19 @@ public class VocabDetails implements Serializable {
     }
 
     public Version getLatestVersion() {
+        Version latestVersion = null;
         if (versions != null && !versions.isEmpty()) {
-            return versions.get(0);
+            for (Version version : versions) {
+                if (latestVersion == null) {
+                    latestVersion = version;
+                } else {
+                    if ( latestVersion.getIssuedDate()!= null && version.getIssuedDate() != null
+                            && latestVersion.getIssuedDate().before(version.getIssuedDate())) {
+                        latestVersion = version;
+                    }
+                }
+            }
+            return latestVersion;
         } else {
             return null;
         }

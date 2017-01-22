@@ -190,6 +190,7 @@ public class VocabularyLOVRanker {
                         details.getLatestVersion().getOutgoingLinks().size(),
                         details.getContributorIds());
                 aggregations.add(vocabAggregation);
+                //System.out.println(vocabAggregation.toString());
             }
         }
         return aggregations.size();

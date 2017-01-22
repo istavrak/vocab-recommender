@@ -3,11 +3,15 @@ package com.istavrak.vocabrecommender.lovranker.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Version implements Serializable {
+    private static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
     private String issued;
     private String name;
     private Integer propertyNumber;
@@ -24,6 +28,16 @@ public class Version implements Serializable {
 
     public String getIssued() {
         return issued;
+    }
+
+    public Date getIssuedDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        try {
+            return sdf.parse(issued);
+        } catch (ParseException e) {
+            e.getStackTrace();
+        }
+        return null;
     }
 
     public void setIssued(String issued) {
