@@ -1469,6 +1469,18 @@
     ]
   },
   {
+    "nsp": "http://www.w3.org/ns/dqv#",
+    "prefix": "dqv",
+    "uri": "http://www.w3.org/ns/dqv",
+    "titles": [
+      {
+        "value": "Data Quality Vocabulary",
+        "lang": "en",
+        "_id": "587e4f137e341093493c3b8e"
+      }
+    ]
+  },
+  {
     "nsp": "http://purl.org/swan/2.0/discourse-relationships/",
     "prefix": "dr",
     "uri": "http://purl.org/swan/2.0/discourse-relationships/",
@@ -5026,7 +5038,7 @@
       {
         "value": "Quantities, Units, Dimensions and Types",
         "lang": "en",
-        "_id": "55a614ee57613119099c3451"
+        "_id": "5875541d7e3410934939d7a3"
       }
     ]
   },
@@ -5735,6 +5747,18 @@
         "value": "QUDT Alignment.",
         "lang": "en",
         "_id": "584ad4f58a0d14e34d5efc77"
+      }
+    ]
+  },
+  {
+    "nsp": "https://w3id.org/seas/",
+    "prefix": "seas-stats",
+    "uri": "https://w3id.org/seas/StatisticsOntology",
+    "titles": [
+      {
+        "value": "The SEAS Statistics ontology.",
+        "lang": "en",
+        "_id": "5873a4437e34109349366a9f"
       }
     ]
   },

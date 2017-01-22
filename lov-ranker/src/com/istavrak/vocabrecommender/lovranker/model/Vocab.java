@@ -1,3 +1,5 @@
+package com.istavrak.vocabrecommender.lovranker.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -37,6 +39,10 @@ public class Vocab implements Serializable {
 
     @Override
     public String toString() {
-        return "Namespace: " + namespace + ", prefix: " + prefix + ", uri: " + uri;
+        return "Vocab{" +
+                "namespace='" + namespace + '\'' +
+                ", prefix='" + prefix + '\'' +
+                ", uri='" + uri + '\'' +
+                '}';
     }
 }
