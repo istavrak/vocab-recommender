@@ -130,10 +130,16 @@ public class VocabularyLOVRanker {
         }
         return null;
     }
+
     private static void downloadVocabs(){
         vocabsLoader();
         for (Vocab vocab : lovVocabs) {
             if (vocab != null && !vocab.getPrefix().isEmpty()) {
+                boolean vocabExists = new File(DATA_FOLDER + vocab.getPrefix() + ".json").exists();
+                if (vocabExists) {
+                    continue;
+                }
+
                 try {
                     Thread.sleep((long)(Math.random() * 1000));
                 } catch (InterruptedException e) {
