@@ -3,6 +3,7 @@ package com.istavrak.vocabrecommender.lovranker;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.istavrak.vocabrecommender.lovranker.model.Vocab;
+import com.istavrak.vocabrecommender.lovranker.model.VocabAggregation;
 import com.istavrak.vocabrecommender.lovranker.model.VocabDetails;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -11,9 +12,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -150,7 +149,56 @@ public class VocabularyLOVRanker {
         }
     }
 
+    /**
+     * Returns the number of vocabularies that have been aggregated successfully.
+     */
+    public static int aggregateVocabularies() {
+        List<VocabAggregation> aggregations = new ArrayList<>();
+
+        HashMap<String, Integer> incomingLinks = new HashMap<>();
+
+        for (Vocab vocab : lovVocabs) {
+            VocabDetails details = vocabDetailsLoader(vocab.getPrefix());
+            if (details == null || details.getLatestVersion() == null) {
+                continue;
+            }
+            for (String outgoingUri : details.getLatestVersion().getOutgoingLinks()) {
+                if (outgoingUri.charAt(outgoingUri.length() - 1) == '#'
+                        || outgoingUri.charAt(outgoingUri.length() - 1) == '/') {
+                    outgoingUri = outgoingUri.substring(0, outgoingUri.length() - 1);
+                }
+                if (incomingLinks.containsKey(outgoingUri)) {
+                    incomingLinks.put(outgoingUri, incomingLinks.get(outgoingUri) + 1);
+                } else {
+                    incomingLinks.put(outgoingUri, 1);
+                }
+            }
+        }
+
+        for (Vocab vocab : lovVocabs) {
+            VocabDetails details = vocabDetailsLoader(vocab.getPrefix());
+            String namespace = vocab.getNamespace();
+            if (namespace.charAt(namespace.length() - 1) == '#'
+                    || namespace.charAt(namespace.length() - 1) == '/') {
+                namespace = namespace.substring(0, namespace.length() - 1);
+            }
+            Integer incoming = incomingLinks.get(namespace);
+            if (details != null && details.getLatestVersion() != null) {
+                VocabAggregation vocabAggregation = new VocabAggregation(
+                        vocab.getPrefix(),
+                        incoming != null ? incoming : 0,
+                        details.getLatestVersion().getOutgoingLinks().size(),
+                        details.getContributorIds());
+                aggregations.add(vocabAggregation);
+            }
+        }
+        return aggregations.size();
+    }
+
+
+
     public static void main(String[] args) {
         downloadVocabs();
+        aggregateVocabularies();
     }
 }

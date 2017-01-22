@@ -7,11 +7,9 @@ import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Vocab implements Serializable {
-
     @JsonProperty("nsp")
     private String namespace;
     private String prefix;
-    private String uri;
 
     public String getNamespace() {
         return namespace;
@@ -29,20 +27,11 @@ public class Vocab implements Serializable {
         this.prefix = prefix;
     }
 
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
     @Override
     public String toString() {
         return "Vocab{" +
                 "namespace='" + namespace + '\'' +
                 ", prefix='" + prefix + '\'' +
-                ", uri='" + uri + '\'' +
                 '}';
     }
 }

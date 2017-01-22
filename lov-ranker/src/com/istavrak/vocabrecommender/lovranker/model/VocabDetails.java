@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -74,8 +75,37 @@ public class VocabDetails implements Serializable {
         this.versions = versions;
     }
 
+    public List<Contributor> getCreators() {
+        return creators;
+    }
+
+    public void setCreators(List<Contributor> creators) {
+        this.creators = creators;
+    }
+
     public Version getLatestVersion() {
-        return versions.get(0);
+        if (versions != null && !versions.isEmpty()) {
+            return versions.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    public List<String> getContributorIds() {
+        List<String> ids = new ArrayList<>();
+
+        if (getContributors() != null) {
+            for (Contributor contributor : getContributors()) {
+                ids.add(contributor.getId());
+            }
+        }
+
+        if (getCreators() != null) {
+            for (Contributor contributor : getCreators()) {
+                ids.add(contributor.getId());
+            }
+        }
+        return ids;
     }
 
     @Override

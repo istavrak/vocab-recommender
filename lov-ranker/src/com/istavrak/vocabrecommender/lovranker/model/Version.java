@@ -3,6 +3,7 @@ package com.istavrak.vocabrecommender.lovranker.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -123,6 +124,18 @@ public class Version implements Serializable {
 
     public void setRelMetadata(List<String> relMetadata) {
         this.relMetadata = relMetadata;
+    }
+
+    public List<String> getOutgoingLinks() {
+        List<String> outgoingLinks = new ArrayList<>();
+        outgoingLinks.addAll(getRelSpecializes());
+        outgoingLinks.addAll(getRelImports());
+        outgoingLinks.addAll(getRelGeneralizes());
+        outgoingLinks.addAll(getRelExtends());
+        outgoingLinks.addAll(getRelEquivalent());
+        outgoingLinks.addAll(getRelDisjunc());
+        outgoingLinks.addAll(getRelMetadata());
+        return outgoingLinks;
     }
 
     @Override
