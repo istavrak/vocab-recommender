@@ -2,6 +2,7 @@ package com.istavrak.vocabrecommender.lovranker;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
+import com.istavrak.vocabrecommender.PropertiesLoader;
 import com.istavrak.vocabrecommender.lovranker.model.Vocab;
 import com.istavrak.vocabrecommender.lovranker.model.VocabAggregation;
 import com.istavrak.vocabrecommender.lovranker.model.VocabDetails;
@@ -12,6 +13,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +22,7 @@ public class VocabularyLOVRanker {
     private static final Logger logger = Logger.getLogger(VocabularyLOVRanker.class.getName());
     private static final String VOCAB_DETAILS_URL = "http://lov.okfn.org/dataset/lov/api/v2/vocabulary/info?vocab=";
     private static final String DATA_FOLDER = "data/vocabs/";
+    private static final PropertiesLoader propertiesLoader = PropertiesLoader.INSTANCE;
     private static List<Vocab> lovVocabs;
 
     private static List<Vocab> vocabsLoader() {
@@ -152,7 +155,7 @@ public class VocabularyLOVRanker {
     /**
      * Returns the number of vocabularies that have been aggregated successfully.
      */
-    public static int aggregateVocabularies() {
+    private static int aggregateVocabularies() {
         List<VocabAggregation> aggregations = new ArrayList<>();
 
         HashMap<String, Integer> incomingLinks = new HashMap<>();
@@ -196,10 +199,31 @@ public class VocabularyLOVRanker {
         return aggregations.size();
     }
 
+    private static void rankVocabularies() {
+        // prefix;incoming;outgoing;[author ids]
+        // acco;2;11;54b2be038433ca9ccf1c0f21
 
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File("data/lovVocabs_aggregated_20170122.txt"))));
+            String line = null;
+
+            while((line = in.readLine()) != null) {
+                String[] vocabDetails = line.split(";");
+                Integer backlinks = Integer.parseInt(vocabDetails[1]);
+                Integer vocabularies = Integer.parseInt(propertiesLoader.getProperty("vocabularies"));
+                Double backlinkScore = backlinks.doubleValue() / vocabularies;
+                BigDecimal backclinkScorePrecision = new BigDecimal(backlinkScore);
+                backclinkScorePrecision = backclinkScorePrecision.setScale(2, BigDecimal.ROUND_UP);
+                //System.out.println(vocabDetails[0] + "," + backclinkScorePrecision);
+            }
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Failed to read the aggregated vocabulary data, exception: " + e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         downloadVocabs();
         aggregateVocabularies();
+        rankVocabularies();
     }
 }
