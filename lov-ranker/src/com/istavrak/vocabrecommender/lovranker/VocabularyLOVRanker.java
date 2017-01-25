@@ -157,7 +157,6 @@ public class VocabularyLOVRanker {
      */
     private static int aggregateVocabularies() {
         List<VocabAggregation> aggregations = new ArrayList<>();
-
         HashMap<String, Integer> incomingLinks = new HashMap<>();
 
         for (Vocab vocab : lovVocabs) {
@@ -221,9 +220,49 @@ public class VocabularyLOVRanker {
         }
     }
 
+    private static void aggregateAuthors() {
+        // prefix;incoming;outgoing;[author ids]
+        // acco;2;11;54b2be038433ca9ccf1c0f21
+        HashMap<String, List<String>> authorsMap = new HashMap<>();
+
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File("data/lovVocabs_aggregated_20170122.txt"))));
+            String line = null;
+            while((line = in.readLine()) != null) {
+                String[] vocabDetails = line.split(";");
+                if (vocabDetails.length == 4) {
+                    List<String> authors = Arrays.asList(vocabDetails[3].split(","));
+                    String vocab = vocabDetails[0];
+                    for (String authorId : authors) {
+                        if (authorsMap.containsKey(authorId)) {
+                            List<String> vocabs = authorsMap.get(authorId);
+                            vocabs.add(vocab);
+                        } else {
+                            List<String> vocabs = new ArrayList<>();
+                            vocabs.add(vocab);
+                            authorsMap.put(authorId, vocabs);
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            logger.log(Level.WARNING, "Failed to read the aggregated vocabulary data, exception: " + e.getMessage());
+        }
+
+        for (Map.Entry entry : authorsMap.entrySet()) {
+            StringBuilder sb = new StringBuilder();
+            for (String vocab : (List<String>) entry.getValue()) {
+                sb.append(vocab);
+                sb.append(",");
+            }
+            System.out.println(entry.getKey() + ";" + sb.toString().substring(0, sb.length() - 1));
+        }
+    }
+
     public static void main(String[] args) {
         downloadVocabs();
         aggregateVocabularies();
         rankVocabularies();
+        aggregateAuthors();
     }
 }
