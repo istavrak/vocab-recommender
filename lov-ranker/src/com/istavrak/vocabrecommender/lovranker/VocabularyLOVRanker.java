@@ -14,6 +14,7 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ public class VocabularyLOVRanker {
     private static HashMap<String, BigDecimal> authorScoreMap = new HashMap<>();
     private static HashMap<String, BigDecimal> vocabBacklinkScore = new HashMap<>();
     private static HashMap<String, BigDecimal> vocabFinalScore = new HashMap<>();
+    private static HashMap<String, VocabDetails> vocabDetailsMap = new HashMap<>();
 
     private static List<Vocab> vocabsLoader() {
         InputStream input = null;
@@ -198,6 +200,8 @@ public class VocabularyLOVRanker {
                         details.getLatestVersion().getOutgoingLinks().size(),
                         details.getContributorIds());
                 aggregations.add(vocabAggregation);
+                vocabDetailsMap.put(vocab.getPrefix(), details);
+                //System.out.println(vocabAggregation.getPrefix()+","+details.getLatestVersion().getIssuedDate().getYear());
                 //System.out.println(vocabAggregation.toString());
             }
         }
@@ -218,7 +222,7 @@ public class VocabularyLOVRanker {
                 Integer vocabularies = Integer.parseInt(propertiesLoader.getProperty("vocabularies"));
                 Double backlinkScore = backlinks.doubleValue() / vocabularies;
                 BigDecimal backclinkScorePrecision = new BigDecimal(backlinkScore);
-                backclinkScorePrecision = backclinkScorePrecision.setScale(2, BigDecimal.ROUND_UP);
+                backclinkScorePrecision = backclinkScorePrecision.setScale(4, BigDecimal.ROUND_UP);
                 vocabBacklinkScore.put(vocabDetails[0], backclinkScorePrecision);
                 //System.out.println(vocabDetails[0] + "," + backclinkScorePrecision);
             }
@@ -347,6 +351,8 @@ public class VocabularyLOVRanker {
     private static BigDecimal rankVocab(Vocab vocab) {
         BigDecimal sV = authorVocabScoreMap.get(vocab.getPrefix());
         BigDecimal vR = vocabBacklinkScore.get(vocab.getPrefix());
-        return vR.add(sV);
+        //System.out.println(vocab.getPrefix() + "," + vR + "," + vR.add(sV).setScale(4, RoundingMode.HALF_UP)
+        //        + "," + (vocabDetailsMap.get(vocab.getPrefix()).getLatestVersion().getIssuedDate().getYear()+1900));
+        return vR.add(sV).setScale(4, RoundingMode.HALF_UP);
     }
 }
