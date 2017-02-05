@@ -19,8 +19,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class VocabularyLOVRanker {
-    private static final Logger logger = Logger.getLogger(VocabularyLOVRanker.class.getName());
+public class LOVRanker {
+    private static final Logger logger = Logger.getLogger(LOVRanker.class.getName());
     private static final String VOCAB_DETAILS_URL = "http://lov.okfn.org/dataset/lov/api/v2/vocabulary/info?vocab=";
     private static final String DATA_FOLDER = "data/vocabs/";
     private static final PropertiesLoader propertiesLoader = PropertiesLoader.INSTANCE;
