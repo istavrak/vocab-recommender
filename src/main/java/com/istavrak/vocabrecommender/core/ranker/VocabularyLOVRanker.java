@@ -29,7 +29,8 @@ public class VocabularyLOVRanker implements VocabularyRanker {
 
     private void loadScores() {
         try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File("data/lovVocabs_finalscore_20170122.csv"))));
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(new File("data/lovVocabs_finalscore_20170122.csv"))));
             String line;
             while((line = in.readLine()) != null) {
                 String[] vocabDetails = line.split(",");

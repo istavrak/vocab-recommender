@@ -12,7 +12,8 @@ public class SearchersTest {
     @Test
     public void testLODStatsInvoking() {
         LODStatsSearcher searcher = new LODStatsSearcher();
-        Results results = (Results) searcher.searchFor("room");
+        Results results = (Results) searcher
+                .searchFor("http%3A%2F%2Fdata.semanticweb.org%2Fns%2Fswc%2Fontology%23MeetingRoomPlace");
         assertFalse(results == null);
         assertTrue(!results.getTerms().isEmpty());
     }

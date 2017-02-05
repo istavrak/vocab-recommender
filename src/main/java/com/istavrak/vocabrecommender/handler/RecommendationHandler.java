@@ -79,7 +79,6 @@ public class RecommendationHandler {
         LOVRecommender lovRecommender = new LOVRecommender();
         List<Query> lovResults = lovRecommender.recommendVocabularyFor(keywords);
         finalResults.addAll(lovResults);
-
         return finalResults;
     }
 
