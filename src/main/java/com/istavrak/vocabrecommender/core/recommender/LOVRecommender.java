@@ -1,6 +1,7 @@
 package com.istavrak.vocabrecommender.core.recommender;
 
 import com.istavrak.vocabrecommender.core.ranker.TermLODRanker;
+import com.istavrak.vocabrecommender.core.ranker.TermVocabccRanker;
 import com.istavrak.vocabrecommender.core.ranker.VocabularyLOVRanker;
 import com.istavrak.vocabrecommender.core.searcher.LOVSearcher;
 import com.istavrak.vocabrecommender.model.lov.Results;
@@ -30,8 +31,11 @@ public class LOVRecommender extends VocabularyRecommender {
             // LODStats ranking
             Rank rankLOD = TermLODRanker.INSTANCE.getTermRanking(termURI);
 
+            // Vocabcc ranking
+            Rank rankVocabcc = TermVocabccRanker.INSTANCE.getTermRanking(termURI);
+
             // Calculate final score
-            query.hasResultTerm.hasRank = calculateTotalTermRanking(rankLOD, null, lovVocabRank,
+            query.hasResultTerm.hasRank = calculateTotalTermRanking(rankLOD, rankVocabcc, lovVocabRank,
                     Double.parseDouble(lovResults.getResults().get(0).getScore()));
         }
         return query;
