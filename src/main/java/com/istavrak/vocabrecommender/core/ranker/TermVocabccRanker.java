@@ -22,7 +22,13 @@ public class TermVocabccRanker implements VocabularyTermRanker {
         VocabCCSearcher searcher = new VocabCCSearcher();
         Results results = null;
         try {
-            results = (Results) searcher.searchFor(URLEncoder.encode(termURI.split("#")[1], "UTF-8"));
+            String[] tokens = termURI.split("#");
+            if (tokens.length > 1) {
+                results = (Results) searcher.searchFor(URLEncoder.encode(tokens[1], "UTF-8"));
+            } else {
+                tokens = termURI.replace("http://", "").split("/");
+                results = (Results) searcher.searchFor(URLEncoder.encode(tokens[tokens.length - 1], "UTF-8"));
+            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
