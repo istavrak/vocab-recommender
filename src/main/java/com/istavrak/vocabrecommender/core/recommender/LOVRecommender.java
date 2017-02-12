@@ -57,8 +57,12 @@ public class LOVRecommender extends VocabularyRecommender {
         }
 
         Collections.sort(finalTerms, ResultTermComparator);
-        query.hasResultTerm = finalTerms.get(0);
-        return query;
+        if (!finalTerms.isEmpty()) {
+            query.hasResultTerm = finalTerms.get(0);
+            return query;
+        } else {
+            return null;
+        }
     }
 
     private static Comparator<ResultTerm> ResultTermComparator = new Comparator<ResultTerm>() {

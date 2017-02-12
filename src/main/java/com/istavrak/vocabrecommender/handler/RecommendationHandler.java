@@ -1,5 +1,6 @@
 package com.istavrak.vocabrecommender.handler;
 
+import com.istavrak.vocabrecommender.core.extractor.CoreNlpExtractor;
 import com.istavrak.vocabrecommender.core.extractor.StaticPartsExtractor;
 import com.istavrak.vocabrecommender.core.recommender.LOVRecommender;
 import com.istavrak.vocabrecommender.core.recommender.StaticRecommender;
@@ -14,8 +15,12 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RecommendationHandler {
+
+    private static final Logger logger = Logger.getLogger(RecommendationHandler.class.getName());
 
     /**
      * Handles the generation of recommendations for a target URL.
@@ -42,6 +47,11 @@ public class RecommendationHandler {
             StaticPartsExtractor staticExtractor = new StaticPartsExtractor();
             keywords.addAll(staticExtractor.getTokens(page));
         }
+
+        CoreNlpExtractor coreNlpExtractor = new CoreNlpExtractor();
+        List<String> nlpTokens = coreNlpExtractor.getTokens(page);
+        keywords.addAll(nlpTokens);
+        logger.log(Level.INFO, "The extracted keywords using NLP: " + nlpTokens);
 
         // Generate the recommendation results
         List<Query> results = resultsForKeywords(keywords);

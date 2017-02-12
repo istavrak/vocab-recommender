@@ -31,8 +31,8 @@ public class RecommendationController {
         RecommendationResponse response;
         RecommendationHandler handler = new RecommendationHandler();
         if (targetUrl != null && queryKeywords == null) {
-            response = handler.generateRecommendationsFor(targetUrl, includeStatic);
             logger.log(Level.INFO, "Starting recommendation for url: " + targetUrl);
+            response = handler.generateRecommendationsFor(targetUrl, includeStatic);
             if (response instanceof RecommendationResultVocabulary) {
                 RecommendationResultVocabulary vocabResult = (RecommendationResultVocabulary) response;
                 logger.log(Level.INFO, "Result recommendation for " + targetUrl + ": " + vocabResult);
