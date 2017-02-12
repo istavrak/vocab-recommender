@@ -10,8 +10,8 @@ The repository is licensed under the open source MIT License, which is included 
 The CoreNLP library that has been integrated is licensed under GNU GPLv3.
 
 ## References
-[1] Manning, Christopher D., Mihai Surdeanu, John Bauer, Jenny Finkel, Steven J. Bethard, and David McClosky. 2014. The Stanford CoreNLP Natural Language Processing Toolkit - In proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics: System Demonstrations, pp. 55-60.
-[2] I.Stavrakantonakis, A.Fensel, D.Fensel. Linked Open Vocabulary ranking and terms discovery - In proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016.
-[3] I.Stavrakantonakis, A.Fensel, D.Fensel. Towards a Vocabulary Terms Discovery Assistant - In proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016.
-[4] I.Stavrakantonakis, A.Fensel, D.Fensel. Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data - In proceedings of the Joint International Semantic Technology Conference, JIST 2015.
-[5] I.Stavrakantonakis, A.Fensel, D.Fensel. Matching web entities with potential actions - In poster paper track of the 10th International Conference on Semantic Systems, SEMANTiCS 2014.
+1. Manning, Christopher D., Mihai Surdeanu, John Bauer, Jenny Finkel, Steven J. Bethard, and David McClosky. 2014. The Stanford CoreNLP Natural Language Processing Toolkit - In proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics: System Demonstrations, pp. 55-60.
+2. I.Stavrakantonakis, A.Fensel, D.Fensel. Linked Open Vocabulary ranking and terms discovery - In proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016.
+3. I.Stavrakantonakis, A.Fensel, D.Fensel. Towards a Vocabulary Terms Discovery Assistant - In proceedings of the 12th International Conference on Semantic Systems, SEMANTiCS 2016.
+4. I.Stavrakantonakis, A.Fensel, D.Fensel. Linked Open Vocabulary Recommendation Based on Ranking and Linked Open Data - In proceedings of the Joint International Semantic Technology Conference, JIST 2015.
+5. I.Stavrakantonakis, A.Fensel, D.Fensel. Matching web entities with potential actions - In poster paper track of the 10th International Conference on Semantic Systems, SEMANTiCS 2014.
