@@ -1,5 +1,6 @@
 package com.istavrak.vocabrecommender.handler;
 
+import com.istavrak.vocabrecommender.PropertiesLoader;
 import com.istavrak.vocabrecommender.core.extractor.CoreNlpExtractor;
 import com.istavrak.vocabrecommender.core.extractor.StaticPartsExtractor;
 import com.istavrak.vocabrecommender.core.recommender.LOVRecommender;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 public class RecommendationHandler {
 
     private static final Logger logger = Logger.getLogger(RecommendationHandler.class.getName());
+    private static final PropertiesLoader loader = PropertiesLoader.INSTANCE;
 
     /**
      * Handles the generation of recommendations for a target URL.
@@ -48,10 +50,13 @@ public class RecommendationHandler {
             keywords.addAll(staticExtractor.getTokens(page));
         }
 
-        CoreNlpExtractor coreNlpExtractor = new CoreNlpExtractor();
-        List<String> nlpTokens = coreNlpExtractor.getTokens(page);
-        keywords.addAll(nlpTokens);
-        logger.log(Level.INFO, "The extracted keywords using NLP: " + nlpTokens);
+        Boolean nlpEnabled = Boolean.parseBoolean(loader.getProperty("nlp.enabled"));
+        if (nlpEnabled) {
+            CoreNlpExtractor coreNlpExtractor = new CoreNlpExtractor();
+            List<String> nlpTokens = coreNlpExtractor.getTokens(page);
+            keywords.addAll(nlpTokens);
+            logger.log(Level.INFO, "The extracted keywords using NLP: " + nlpTokens);
+        }
 
         // Generate the recommendation results
         List<Query> results = resultsForKeywords(keywords);
