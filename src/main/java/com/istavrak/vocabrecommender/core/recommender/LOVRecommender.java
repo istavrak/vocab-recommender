@@ -17,6 +17,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class LOVRecommender extends VocabularyRecommender {
+    private static final String VOCABCC_PROP = "search.vocabcc.enabled";
+    private static final String LODSTATS_PROP = "search.lodstats.enabled";
     private final PropertiesLoader propertiesLoader = PropertiesLoader.INSTANCE;
 
     @Override
@@ -30,6 +32,9 @@ public class LOVRecommender extends VocabularyRecommender {
 
         List<ResultTerm> finalTerms = new ArrayList<>();
 
+        boolean isVocabccEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(VOCABCC_PROP));
+        boolean isLodstatsEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(LODSTATS_PROP));
+
         if (!lovResults.getResults().isEmpty()) {
             for (Term result : lovResults.getResults()) {
                 String termURI = result.getUri().get(0);
@@ -39,10 +44,10 @@ public class LOVRecommender extends VocabularyRecommender {
                 Rank lovVocabRank = VocabularyLOVRanker.INSTANCE.getVocabularyRanking(vocabPrefix);
 
                 // LODStats ranking
-                Rank rankLOD = TermLODRanker.INSTANCE.getTermRanking(termURI);
+                Rank rankLOD = isLodstatsEnabled ? TermLODRanker.INSTANCE.getTermRanking(termURI) : null;
 
                 // Vocabcc ranking
-                Rank rankVocabcc = TermVocabccRanker.INSTANCE.getTermRanking(termURI);
+                Rank rankVocabcc = isVocabccEnabled ? TermVocabccRanker.INSTANCE.getTermRanking(termURI) : null;
 
                 // Calculate final score
                 ResultTerm queryResultTerm = new ResultTerm();
