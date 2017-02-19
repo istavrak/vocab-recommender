@@ -20,18 +20,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RecommendationHandler {
-
     private static final Logger logger = Logger.getLogger(RecommendationHandler.class.getName());
     private static final PropertiesLoader loader = PropertiesLoader.INSTANCE;
 
-    /**
-     * Handles the generation of recommendations for a target URL.
-     * @param url The URL of the target webpage.
-     * @param includeStatic Flag to disable the inclusion of terms for static elements.
-     * @return A successful response.
-     */
+    public RecommendationResponse generateRecommendationsFor(String bodyHtml, String url, Boolean includeStatic) {
+        // Parse the content of the URL for further analysis.
+        TargetPage page;
+        try {
+            page = generateTargetPageFromHtml(bodyHtml, url);
+        } catch (IOException e) {
+            return new RecommendationFailure("Failed to parse the stored HTML.");
+        }
+        return generateRecommendationsFor(page, includeStatic);
+    }
+
     public RecommendationResponse generateRecommendationsFor(String url, Boolean includeStatic) {
-        // Extract the content of the URL for further analysis.
+        // Parse the content of the URL for further analysis.
         TargetPage page;
         try {
             page = generateTargetPage(url);
@@ -42,6 +46,16 @@ public class RecommendationHandler {
         if (page == null) {
             return new RecommendationFailure("Failed to extract the content of the URL.");
         }
+        return generateRecommendationsFor(page, includeStatic);
+    }
+
+    /**
+     * Handles the generation of recommendations for a TargetPage.
+     * @param page The TargetPage object for the target webpage.
+     * @param includeStatic Flag to disable the inclusion of terms for static elements.
+     * @return A successful response or failure.
+     */
+    private RecommendationResponse generateRecommendationsFor(TargetPage page, Boolean includeStatic) {
         List<String> keywords = new ArrayList<>();
 
         // Extract static parts (images)
@@ -98,6 +112,16 @@ public class RecommendationHandler {
 
     public TargetPage generateTargetPage(String url) throws IOException {
         Document doc = Jsoup.connect(url).get();
+        TargetPage page = new TargetPage();
+        page.setPageURL(url);
+        page.setPageDocument(doc);
+
+        return page;
+    }
+
+    public TargetPage generateTargetPageFromHtml(String bodyHtml, String url) throws IOException {
+        Document doc = Jsoup.parseBodyFragment(bodyHtml);
+
         TargetPage page = new TargetPage();
         page.setPageURL(url);
         page.setPageDocument(doc);
