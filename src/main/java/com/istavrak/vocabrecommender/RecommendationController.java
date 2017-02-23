@@ -48,11 +48,12 @@ public class RecommendationController {
                         "The correct number falls in the range [1,10].");
                 return response;
             }
-            logger.log(Level.INFO, "Starting recommendation for keywords: " + keywords.toString());
+            String keywordToCheck = keywords.toString();
+            logger.log(Level.INFO, "Starting recommendation for keywords: " + keywordToCheck);
             response = handler.generateRecommendationsFor(keywords);
             if (response instanceof RecommendationResultVocabulary) {
                 RecommendationResultVocabulary vocabResult = (RecommendationResultVocabulary) response;
-                logger.log(Level.INFO, "Result recommendation for " + keywords.toString() + ": " + vocabResult);
+                logger.log(Level.INFO, "Result recommendation for " + keywordToCheck + ": " + vocabResult);
             }
         } else {
             response = new RecommendationFailure("Please specify either a URL with the " +

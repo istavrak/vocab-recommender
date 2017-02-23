@@ -19,21 +19,23 @@ import java.util.List;
 public class LOVRecommender extends VocabularyRecommender {
     private static final String VOCABCC_PROP = "search.vocabcc.enabled";
     private static final String LODSTATS_PROP = "search.lodstats.enabled";
-    private final PropertiesLoader propertiesLoader = PropertiesLoader.INSTANCE;
+    private static final String ALPHA_PROP = "alphafactor";
+    private static final String MAX_TERMS_PROP = "recommend.terms.max";
+    private static final PropertiesLoader propertiesLoader = PropertiesLoader.INSTANCE;
+    private static final boolean isVocabccEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(VOCABCC_PROP));
+    private static final boolean isLodstatsEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(LODSTATS_PROP));
+    private static final int maxTerms = Integer.parseInt(propertiesLoader.getProperty(MAX_TERMS_PROP));
 
     @Override
     public Query getResultsFor(String keyword) {
+
         Query query = new Query();
-        query.keyword = keyword;
-        query.hasResultTerm = new ResultTerm();
+        query.setKeyword(keyword);
 
         LOVSearcher searcher = new LOVSearcher();
         Results lovResults = (Results) searcher.searchFor(keyword);
 
         List<ResultTerm> finalTerms = new ArrayList<>();
-
-        boolean isVocabccEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(VOCABCC_PROP));
-        boolean isLodstatsEnabled = Boolean.parseBoolean(propertiesLoader.getProperty(LODSTATS_PROP));
 
         if (!lovResults.getResults().isEmpty()) {
             for (Term result : lovResults.getResults()) {
@@ -62,8 +64,13 @@ public class LOVRecommender extends VocabularyRecommender {
         }
 
         Collections.sort(finalTerms, ResultTermComparator);
+        query.setHasResultTerm(new ArrayList<ResultTerm>());
         if (!finalTerms.isEmpty()) {
-            query.hasResultTerm = finalTerms.get(0);
+            if (finalTerms.size() > maxTerms) {
+                query.getHasResultTerm().addAll(finalTerms.subList(0, maxTerms));
+            } else {
+                query.getHasResultTerm().addAll(finalTerms);
+            }
             return query;
         } else {
             return null;
@@ -90,7 +97,7 @@ public class LOVRecommender extends VocabularyRecommender {
         Double vocabLovRankScore = vocabLovRank != null ? vocabLovRank.rankValue : 0;
         Double lovRelevanceScore = lovScoreAPI != null ? lovScoreAPI : 1;
 
-        double a = Double.parseDouble(propertiesLoader.getProperty("alphafactor"));
+        double a = Double.parseDouble(propertiesLoader.getProperty(ALPHA_PROP));
         finalRank = (termLodRankScore / termVocabccRankScore + a * vocabLovRankScore) * lovRelevanceScore;
         return new Rank(finalRank);
     }

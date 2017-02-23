@@ -18,7 +18,6 @@ public class RecommendationResultVocabulary implements RecommendationResponse, S
 
     private static final Logger logger = Logger.getLogger(RecommendationResultVocabulary.class.getName());
 
-
     public List<Query> doQuery;
 
     public RecommendationResultVocabulary() {
@@ -37,9 +36,7 @@ public class RecommendationResultVocabulary implements RecommendationResponse, S
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Query query : doQuery) {
-            sb.append(query.keyword);
-            sb.append(":");
-            sb.append(query.hasResultTerm);
+            sb.append(query.toString());
             sb.append(",");
         }
         if (sb.length() > 0) {
@@ -48,6 +45,10 @@ public class RecommendationResultVocabulary implements RecommendationResponse, S
         return sb.toString();
     }
 
+    /**
+     * Used by the JSP of the assistant.
+     * @return Serialised result to JSON.
+     */
     public String toJson() {
         ObjectMapper mapper = new ObjectMapper();
         String jsonOutput = null;

@@ -106,7 +106,9 @@ public class RecommendationHandler {
         // Generate the LOV recommendations
         LOVRecommender lovRecommender = new LOVRecommender();
         List<Query> lovResults = lovRecommender.recommendVocabularyFor(keywords);
-        finalResults.addAll(lovResults);
+        if (!lovResults.isEmpty()) {
+            finalResults.addAll(lovResults);
+        }
         return finalResults;
     }
 
@@ -119,7 +121,7 @@ public class RecommendationHandler {
         return page;
     }
 
-    public TargetPage generateTargetPageFromHtml(String bodyHtml, String url) throws IOException {
+    private TargetPage generateTargetPageFromHtml(String bodyHtml, String url) throws IOException {
         Document doc = Jsoup.parseBodyFragment(bodyHtml);
 
         TargetPage page = new TargetPage();

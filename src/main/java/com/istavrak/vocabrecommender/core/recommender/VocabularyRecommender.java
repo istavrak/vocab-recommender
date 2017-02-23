@@ -15,7 +15,7 @@ public abstract class VocabularyRecommender {
         List<Query> queries = new ArrayList<>();
         for (String keyword : keywords) {
             Query query = getResultsFor(keyword);
-            if (query != null) {
+            if (query != null && !query.getHasResultTerm().isEmpty()) {
                 queries.add(query);
             } else {
                 notUsedKeywords.add(keyword);
